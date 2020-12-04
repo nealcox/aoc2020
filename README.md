@@ -8,3 +8,7 @@ List of password rules and passwords, eg "1-3 a: abcde". Check validity.
 
 Day 3: Toboggan Trajectory
 Get a map of trees in our locale, finding how many trees we hit on our route through it (several different routes for part 2).
+
+Day 4: Passport Processing
+Each passport has eight fields which need validating.
+
