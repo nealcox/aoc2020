@@ -67,7 +67,7 @@ def valid_hgt(s):
 def valid_hcl(s):
     if len(s) >1 and s[0] == "#":
         valid = True
-        for char in s[1]:
+        for char in s[1:]:
             if char not in "0123456789abcdef":
                 return False
         return True
