@@ -19,9 +19,12 @@ def calculate(input_text):
     given = parse(input_text)
     for group in given:
         c = Counter(group)
+        glen = c["\n"] + 1
         if "\n" in c:
             del c["\n"]
-        answer += len(c)
+        for x in c:
+            if c[x] == glen:
+                answer += 1
     return answer
 
 

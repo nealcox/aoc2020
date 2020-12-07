@@ -1,3 +1,4 @@
+import re
 import sys
 from collections import defaultdict
 from itertools import permutations
@@ -25,10 +26,28 @@ def calculate(input_text):
 
 
 def parse(s):
+    given = None
+    #given = partlines(s)
+    given = get_nums(s)
+    return given
+
+
+def partlines(s):
     given = []
-    for line in s:
-        line = line.strip().split(" ")
+    for line in s.split("\n"):
+        line = line.strip()
         given.append(line)
+    return given
+
+
+def get_nums(s):
+    given = []
+    r = re.compile("(\d+)")
+    for line in s.split("\n"):
+        ints = []
+        for i in r.findall(line):
+            ints.append(int(i))
+        given.append(ints)
     return given
 
 
