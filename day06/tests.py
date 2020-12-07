@@ -1,7 +1,6 @@
-import pytest
-
 import part1
 import part2
+import pytest
 
 
 s1 = """\
@@ -26,12 +25,13 @@ a
 
 b"""
 
+
 @pytest.mark.parametrize(
     ("s", "expected"),
     (
         # Test cases here
-        (s1,6), 
-        (s2,11), 
+        (s1, 6),
+        (s2, 11),
     ),
 )
 def test(s, expected):
@@ -42,7 +42,7 @@ def test(s, expected):
     ("s", "expected"),
     (
         # Test cases here
-        (s2,6), 
+        (s2, 6),
     ),
 )
 def test2(s, expected):

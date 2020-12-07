@@ -13,7 +13,7 @@ def main():
 def run(forest):
     cols = len(forest[0])
     total_trees = 1
-    for (right, down) in ((1,1), (3,1), (5,1), (7,1), (1,2)):
+    for (right, down) in ((1, 1), (3, 1), (5, 1), (7, 1), (1, 2)):
         r, c = 0, 0
         num_trees_for_slope = 0
         while True:

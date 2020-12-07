@@ -20,14 +20,12 @@ def calculate(input_text):
     given = parse(input_text)
     print(given)
 
-
-
     return answer
 
 
 def parse(s):
     given = None
-    #given = partlines(s)
+    # given = partlines(s)
     given = get_nums(s)
     return given
 

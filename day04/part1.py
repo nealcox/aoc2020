@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     if len(sys.argv) > 1:
         input_file = sys.argv[1]
@@ -16,7 +17,7 @@ def run(given):
         if len(batch) == 8:
             answer += 1
         elif "hgt" not in batch:
-                pass
+            pass
         elif len(batch) == 7 and "cid" not in batch:
             answer += 1
     return answer
@@ -30,7 +31,7 @@ def setup(filename):
             batch = {}
             details = passport.split()
             for detail in details:
-                k,v = detail.split(":")
+                k, v = detail.split(":")
                 batch[k] = v
             given.append(batch)
     return given
