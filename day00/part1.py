@@ -40,7 +40,7 @@ def partlines(s):
 
 def get_nums(s):
     given = []
-    r = re.compile("(\d+)")
+    r = re.compile(r"(\d+)")
     for line in s.split("\n"):
         ints = []
         for i in r.findall(line):
