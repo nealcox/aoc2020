@@ -25,4 +25,9 @@ Groups of sets of letters. Find all defferent letters in each group (part 1) and
 Day 7: Handy Haversacks
 Lots of rules: I have a bag. Each type of bags must contain a specified number of different types of bag, recursively.
 
-Day 8:
+Day 8: Handheld Halting
+Finding infinite loop in a program, then getting rid of it.
+
+Day 9: Encoding Error
+Find a number in a list which isn't the sum of two numbers in a previous fixed
+length sub-list (part 1). Find a sub-list which sums to the number found in part 1.
