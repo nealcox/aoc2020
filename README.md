@@ -33,7 +33,12 @@ Finding infinite loop in a program, then getting rid of it.
 Day 9: Encoding Error
 Find a number in a list which isn't the sum of two numbers in a previous fixed
 length sub-list (part 1). Find a sub-list which sums to the number found in part 1.
+<<<<<<< HEAD
 
 Day 10: Adapter Array
 List of integers: sort and look at differences between successive numbers (part 1).
 With a maximum difference of 3, how many paths are there through the list (part 2)?
+
+Day 11: Seating System
+Map of seat and spaces in a waiting area, with rules on where people will sit.
+Repeat until steady state.
