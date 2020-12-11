@@ -26,7 +26,8 @@ def calculate(input_text):
 def parse(s):
     given = None
     # given = partlines(s)
-    given = get_nums(s)
+    given = get_one_int_per_line(s)
+    # given = get_re(s)
     return given
 
 
@@ -38,13 +39,20 @@ def partlines(s):
     return given
 
 
-def get_nums(s):
+def get_one_int_per_line(s):
+    ints = []
+    for line in s.split("\n"):
+        ints.append(int(i))
+    return ints
+
+
+def get_re(s):
     given = []
     r = re.compile(r"(\d+)")
     for line in s.split("\n"):
-        ints = []
+        res = []
         for i in r.findall(line):
-            ints.append(int(i))
+            res.append(int(i))
         given.append(ints)
     return given
 
