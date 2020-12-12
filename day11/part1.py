@@ -16,15 +16,7 @@ def main():
 
 def calculate(input_text):
 
-    given = parselines(input_text)
-    rows = len(given)
-    cols = len(given[0])
-    print(given)
-    layout = defaultdict(str)
-    for r in range(len(given)):
-        for c in range(len(given[0])):
-            layout[r, c] = given[r][c]
-
+    layout, rows, cols = parse(input_text)
     rounds = 0
     changed = True
     while changed:
@@ -42,8 +34,8 @@ def calculate(input_text):
                 else:
                     new_layout[r, c] = layout[r, c]
         layout = new_layout
-        print(rounds)
-        pprint(layout, rows, cols)
+        # print(rounds)
+        # pprint(layout, rows, cols)
     return sum(1 for s in layout.values() if s == "#")
 
 
@@ -65,12 +57,12 @@ def occupied(r, c, layout):
     return occu
 
 
-def parselines(s):
-    given = []
-    for line in s.split("\n"):
-        line = [c for c in line.strip()]
-        given.append(line)
-    return given
+def parse(s):
+    layout = defaultdict(str)
+    for r, line in enumerate(s.split()):
+        for c, char in enumerate(line):
+            layout[r, c] = char
+    return layout, r + 1, c + 1
 
 
 if __name__ == "__main__":

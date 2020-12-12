@@ -1,4 +1,6 @@
 import part1
+
+# import part2
 import pytest
 
 
@@ -9,5 +11,5 @@ import pytest
         # ('FBFBBFFRLR', 357),
     ),
 )
-def test(s, expected):
+def test_part1(s, expected):
     assert part1.calculate(s) == expected

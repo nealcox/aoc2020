@@ -41,3 +41,6 @@ With a maximum difference of 3, how many paths are there through the list (part 
 Day 11: Seating System
 Map of seat and spaces in a waiting area, with rules on where people will sit.
 Repeat until steady state.
+
+Day 12: Rain Risk
+List of directions to move a ferry, how far away from start point is it at the emd?
