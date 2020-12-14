@@ -43,4 +43,10 @@ Map of seat and spaces in a waiting area, with rules on where people will sit.
 Repeat until steady state.
 
 Day 12: Rain Risk
-List of directions to move a ferry, how far away from start point is it at the emd?
+List of directions to move a ferry, how far away from start point is it at the end?
+
+Day 13: Shuttle Search
+Modulo arithmatic on bus times
+
+Day 14: Docking Data
+Apply "bitmasks" values (part 1) and addresses (part 2)

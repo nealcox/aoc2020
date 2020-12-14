@@ -53,7 +53,7 @@ def get_re(s):
         res = []
         for i in r.findall(line):
             res.append(int(i))
-        given.append(ints)
+        given.append(res)
     return given
 
 
