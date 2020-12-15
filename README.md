@@ -50,3 +50,7 @@ Modulo arithmatic on bus times
 
 Day 14: Docking Data
 Apply "bitmasks" values (part 1) and addresses (part 2)
+
+Day 15: Rambunctious Recitation
+Simulate a number game generating a sequence of integers. What are the 2020th
+(part 1) and 30millionth (part 2) items? (No clever solution)
