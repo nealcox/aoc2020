@@ -54,3 +54,7 @@ Apply "bitmasks" values (part 1) and addresses (part 2)
 Day 15: Rambunctious Recitation
 Simulate a number game generating a sequence of integers. What are the 2020th
 (part 1) and 30millionth (part 2) items? (No clever solution)
+
+Day 16: Ticket Translation
+Rules for values in a list of field names, a bunch of tickets and your ticket.
+Remove invalid tickets then work out which field has which name.
