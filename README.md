@@ -58,3 +58,6 @@ Simulate a number game generating a sequence of integers. What are the 2020th
 Day 16: Ticket Translation
 Rules for values in a list of field names, a bunch of tickets and your ticket.
 Remove invalid tickets then work out which field has which name.
+
+Day 17: Conway Cubes
+Game of Life in three (part 1) and four (part 2) dimensions.
