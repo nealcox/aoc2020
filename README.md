@@ -61,3 +61,6 @@ Remove invalid tickets then work out which field has which name.
 
 Day 17: Conway Cubes
 Game of Life in three (part 1) and four (part 2) dimensions.
+
+Day 18: Operation Order
+Change orders of precedence on some sums.
