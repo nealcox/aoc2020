@@ -29,10 +29,10 @@ def calculate(input_text):
         if ins == "nop":
             pc += 1
         elif ins == "acc":
-            acc += val
+            acc += val[0]
             pc += 1
         elif ins == "jmp":
-            pc += val
+            pc += val[0]
         else:
             ValueError(f"Bad instruction at position {pc}: {ins} {v}")
         if pc in seen:
@@ -41,10 +41,18 @@ def calculate(input_text):
 
 
 def parse(s):
-    r = re.compile(r"(\w+) ([+-]\d+)")
     given = []
-    for ins, v in r.findall(s):
-        given.append((ins, int(v)))
+    for line in s.split("\n"):
+        print(line)
+        words = line.split()
+        ins = words[0]
+        vals = []
+        for v in words[1:]:
+            try:
+                vals.append(int(v))
+            except ValueError:
+                vals.append(v)
+        given.append((ins, tuple(vals)))
     return given
 
 
