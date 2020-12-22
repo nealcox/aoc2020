@@ -22,45 +22,91 @@ def calculate(input_text):
     ################################################################
     borderlessimage = get_image(given)
 
-    for i, l in enumerate(borderlessimage):
-        print(i, l)
+    #    for i, l in enumerate(borderlessimage):
+    #        print(i, l)
 
-    # ans = roughness(borderlessimage)
-
+    answer = roughness(borderlessimage)
+    #    im = borderlessimage[:]
+    #    print(f"original:")
+    #    for l in im:
+    #        print(l)
+    #    im2 = rotate(im)
+    #    print(f"\nrotated:")
+    #    for l in im2:
+    #        print(l)
+    #
     return answer
 
 
 def roughness(search_image):
+    im, num_monsters = mark_monsters(search_image)
+    # print(f"got back:\n{im}")
+    if num_monsters == 0:
+        im.reverse()
+        im, num_monsters = mark_monsters(im)
+    # im2 = im[::-1]
+    print(f"Number of monsters: {num_monsters}")
+    total_roughness = 0
+    for l in im:
+        for c in l:
+            if c == "#":
+                total_roughness += 1
+    print(f"Total roughness = {total_roughness}")
+    print(f"#s in monsters = {num_monsters*15}")
+    print(f"Roughness = {total_roughness - num_monsters *15}")
+    return total_roughness - num_monsters * 15
+
+
+def mark_monsters(search_image):
     #
-    #     "                  #"
-    #     "#    ##    ##    ###"
-    #     " #  #  #  #  #  #"
+    #     "                  #"       1 \
+    #     "#    ##    ##    ###"      8  > total 15
+    #     " #  #  #  #  #  #"         6 /
     #
     r0 = re.compile(".{18}[#O]")
     r1 = re.compile("[#O].{4}[#O][#O].{4}[#O][#O].{4}[#O][#O][#O]")
     r2 = re.compile(".[#O]..[#O]..[#O]..[#O]..[#O]..[#O]")
+    num_monsters = 0
 
     im = search_image[:]
-    im_rev = im[:].reverse()
-    for image in [im, im_rev]:
-        for rotation in range(4):
-            print(rotation)
-            for i, line in enumerate(im[1:-1], start=1):
-                ms = r1.findall(line)
-                if ms:
-                    print(i, line)
-                    print(ms)
-            im = rotate(im)
+    for rotation in range(4):
+        # print(rotation)
+        print(im[0])
+        for i, line in enumerate(im[1:-1], start=1):
+            ms = r1.finditer(line)
+            # print(ms)
+            for m in ms:
+                # print(type(m),m)
+                if isinstance(m, re.Match):
+                    # print(m.start(),m.end(),m.group())
+                    start = m.start()
+                    end = m.end()
+                    if im[i - 1][end - 1 - 1] in "O#":
+                        # print("head found")
+                        if r2.match(im[i + 1][start : end + 1]):
+                            # print("lower body found")
+                            print("Monster found! (line{i}, start{start})")
+                            num_monsters += 1
+                            # print(f"Top line: {im[0]}")
+                            # print(f"found on line{i}")
+                # print(type(m),m)
+                # print(i, line)
+                # print(m.start(),m.end().m.match())
+        if num_monsters > 0:
+            return im[:], num_monsters
+        im = rotate(im[:])
+    # print(im)
 
-    return 0
+    return im[:], num_monsters
 
 
 def rotate(im):
+    size = len(im)
     new_im = []
-    for i in range(len(im)):
+    for i in range(size):
         new_im.append([])
-        for j in range(len(im)):
-            new_im[-1].append(im[j][i])
+        for j in range(size):
+            new_im[-1].append(im[j][size - 1 - i])
     return ["".join(l) for l in new_im]
 
 
