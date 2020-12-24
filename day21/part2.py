@@ -3,6 +3,9 @@ import sys
 from collections import defaultdict
 from itertools import permutations
 
+INGREDIENTS = 0
+ALLERGENS = 1
+
 
 def main():
     if len(sys.argv) > 1:
@@ -20,20 +23,22 @@ def calculate(input_text):
     foods = partlines(input_text)
     all_ingredients = set()
     all_allergens = set()
-    allergens_for_ingredients = defaultdict(set)
+    allergens_for_ingredients = defaultdict(set)  # Keys ingredients, values allergens
 
-    possible = defaultdict(set)
+    # Collect all the things
+    possible = defaultdict(set)  # Keys allergens, values possible ingredients
+
     ingredients_without_allergens = set()
     for food in foods:
-        all_ingredients |= set(food[0])
-        all_allergens |= set(food[1])
-    for a in all_allergens:  # Inititally, each allergen could be in any ingredient
+        all_ingredients |= set(food[INGREDIENTS])
+        all_allergens |= set(food[ALLERGENS])
+    # Inititally, each allergen could be in any ingredient
+    for a in all_allergens:
         possible[a] = all_ingredients.copy()
+    # If an allergen is in a food, it must be in one of the ingredients
     for food in foods:
-        for a in food[
-            1
-        ]:  # If an allergen is in a food, it must be in one of the ingredients
-            possible[a] &= set(food[0])
+        for a in food[ALLERGENS]:
+            possible[a] &= set(food[INGREDIENTS])
     for a in all_allergens:  # For each ingredient, what allergens could it contain
         for i in possible[a]:
             allergens_for_ingredients[i].add(a)
@@ -41,11 +46,7 @@ def calculate(input_text):
         if not allergens_for_ingredients[i]:
             print(f"{i} cannot contain any allergens")
             ingredients_without_allergens.add(i)
-    answer = 0
-    for i in ingredients_without_allergens:
-        for f in foods:
-            if i in f[0]:
-                answer += 1
+
     finished = False
     dangerous = {}
     dangerous2 = {}
