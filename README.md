@@ -64,3 +64,24 @@ Game of Life in three (part 1) and four (part 2) dimensions.
 
 Day 18: Operation Order
 Change orders of precedence on some sums.
+
+Day 19: Monster Messages
+Build regular expressions
+
+Day 20: Jurassic Jigsaw
+Put tiles together to make a jigsaw, then look for sea monsters in the picture
+
+Day 21: Allergen Assessment
+List of ingredients and allergens in a series of foods. Match them up
+
+Day 22: Crab Combat
+Card game
+
+Day 23: Crab Cups
+Manipulate a circular arrangement of numbered cups
+
+Day 24: Lobby Layout
+Black and white tiles and Conway Game of Life
+
+Day 25: Combo Breaker
+Calculate an encryption key
